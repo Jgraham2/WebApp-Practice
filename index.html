@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" manifest="offline.appcache">
+<head>
+    <script src="//fast.eager.io/_q1aT6GUzI.js"></script>
+    <script type="text/javascript" src="starter-template/js/index.js">
+    </script>
+    <script type="text/javascript" src="starter-template/js/offline.min.js">
+    </script>
+    <script type="text/javascript" src="starter-template/js/jquery.min.js">
+    </script>
+      <script type="text/javascript" src="starter-template/js/parse-1.6.7.js">
+      </script>
+      <link href="favicon.ico" rel="icon" type="image/x-icon">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Wonderful Web Application</title>
+  <!-- CSS  -->
+
+  <link href="starter-template/css/materialize.min.css" type="text/css" rel="stylesheet" />
+  <link href="starter-template/css/style.css" type="text/css" rel="stylesheet"/>
+  <link href="starter-template/css/fonts.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <h6>
+					You are 
+					<strong id="online-status" class="online">
+						Online
+					</strong>
+				</h6>
+				<script>
+                                    var displayOnlineStatus = document.getElementById("online-status");
+                                    var isOnline = function () {
+								displayOnlineStatus.innerHTML = "Online";
+								displayOnlineStatus.className = "online";
+                                                                parseSend();
+							},
+					isOffline = function () {
+								displayOnlineStatus.innerHTML = "Offline";
+								displayOnlineStatus.className = "offline";
+                                                                
+							};
+                                        if (window.addEventListener) {
+
+                                                window.addEventListener("online", isOnline);
+                                                window.addEventListener("offline", isOffline);
+                                        }
+                                        else {
+                                                document.body.ononline = isOnline;
+                                                document.body.onoffline = isOffline;
+                                        }
+                                        if(navigator.onLine) {
+                                            checkOnLoad: true,
+                                            isOnline();
+                                        } else {
+                                            checkOnLoad: false,
+                                            isOffine();
+                                        }
+    </script>
+    <script>
+    
+    function post() {
+        save();
+      parseSend();
+      
+    }
+    
+    function parseSend() {
+        Parse.initialize("OouzCEBELK9R8xDPKHTtiPhxoiM1tXyMBK3YVuGg", "RpzWiaBv6sgrdg2w05a9qfkOFYKLz5Ao4yziqL5x");
+        var Test = Parse.Object.extend("Test");
+        var data = JSON.parse(localStorage.getItem("formInput"));
+        
+        data.forEach (function(value) {
+            var test = new Test();
+            test.set("name", value.name);
+            test.set("email", value.email);
+            test.set("message", value.message);
+            test.save({
+                success: function(){
+                    localStorage.clear();
+                    alert("Online Save Successful!");
+                }, error: function(error){
+                    //alert("Items not saved correctly");
+                    console.log("Error:"+error.message);
+                }
+            });
+            
+        });     
+    }  
+    
+    /*$("#form").submit(function(event) {
+        event.preventDefault();
+        console.log("message");
+            var pName = $("#form-name").val();
+            var pEmail = $("#form-email").val();
+            var pMessage = $("#form-message").val();
+            
+            var test = new Test();
+    
+            test.set("name", pName);
+            test.set("email", pEmail);
+            test.set("message", pMessage);
+            
+            test.save();
+    });*/
+    
+
+    </script>
+    <script>
+       function save() {
+        var jsonArray = JSON.parse(localStorage.getItem("formInput")); 
+        if (jsonArray == undefined || jsonArray == null || jsonArray.length == 0){
+            jsonArray = [];
+        }
+        var txtName = document.getElementById('name').value;
+        var txtEmail = document.getElementById('email').value;
+        var txtMessage = document.getElementById('message').value;
+        
+        var formInput = {name:txtName,email:txtEmail,message:txtMessage};
+        jsonArray.push(formInput);
+        localStorage.setItem("formInput", JSON.stringify(jsonArray));
+        alert("saved offline");
+        
+        
+    }
+    </script>
+    <script src="../offline.min.js"></script>
+
+<!--
+Themes:
+<link rel="stylesheet" href="./themes/offline-theme-default.css" />
+<link rel="stylesheet" href="./themes/offline-theme-default-indicator.css" />
+<link rel="stylesheet" href="./themes/offline-theme-slide.css" />
+<link rel="stylesheet" href="./themes/offline-theme-slide-indicator.css" />
+<link rel="stylesheet" href="./themes/offline-theme-chrome.css" />
+<link rel="stylesheet" href="./themes/offline-theme-chrome-indicator.css" />
+<link rel="stylesheet" href="./themes/offline-theme-hubspot.css" />
+
+
+<link rel="stylesheet" href="../themes/offline-theme-chrome.css" />
+<link rel="stylesheet" href="../themes/offline-language-english.css" />
+
+<script>
+var run = function(){
+  var req = new XMLHttpRequest();
+  req.timeout = 5000;
+  req.open('GET', 'http://localhost:8383/HTML5Application/index.html', true);
+  req.send();
+};
+setInterval(run, 3000);
+</script>
+-->
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">My Wonderful Web App</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Home</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Other Stuff</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Well, Hello There!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">This is a wonderful web app. Isnt it wonderful? (please say yes, I need this)</h5>
+      </div>
+      <div class="row center">
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Pointless Button</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+    <div>
+<form class="container" id="form" data-parsley-validate >
+  <h1>Simple Form</h1>
+  <fieldset>
+  		  <input class="floatlabel" id="name" type="text" placeholder="Name" required data-parsley-no-focus data-parsley-error-message="Please enter your name." />
+  	</fieldset>
+  <fieldset>
+  		  <input class="floatlabel" id="email" type="email" placeholder="Email" required data-parsley-no-focus data-parsley-error-message="Please enter a valid email address." />
+  	</fieldset>
+  <fieldset>
+    		<textarea class="floatlabel" id="message" placeholder="Message" required data-parsley-no-focus data-parsley-error-message="Please enter a message." ></textarea>
+  	</fieldset>
+  <feildset>
+      <div class="navbar-fixed">
+		<nav role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="#" class="brand-logo">Camera Demo</a>
+			</div>
+		</nav>
+	</div>
+	<br>
+	<div class="container">
+		<div id="photos" class="column">
+			<div class="col s12 m6">
+				<div class="card grey lighten-4">
+					<div class="card-content">
+						<span class="card-title black-text">Photos</span>
+						<div id="photos-content">
+							<video id="video" style="display: none;" autoplay></video>
+							<a class="waves-effect waves-light btn" id="new" href="#" onclick="openCamera();"><i class="material-icons">&#xE145;</i></a>
+							<a class="waves-light btn" id="snap" href="#" style="display: none;" onclick="takePhoto();"><i class="material-icons">&#xE412;</i></a>
+							<a class="waves-effect waves-light btn" id="switch" href="#" style="display: none;" onclick="cycleCameras();"><i class="material-icons">&#xE41E;</i></a>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </feildset>
+  <fieldset>
+    		
+                <a class="waves-effect waves-light btn" id="form-submit" onclick="post()" >Submit</a>
+                
+  	</fieldset>
+</form>
+        </div>
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">It does surely!</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light">Oh god aye its grand so it is!</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">No Bother at all hai!</p>
+          </div>
+        </div>
+      </div>
+      <div class="center"> 
+      <img src="starter-template/image/doge.jpg" alt="doge" style="width:304px;height:228px;">
+      </div>
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="starter-template/js/materialize.js"></script>
+  <script src="starter-template/js/init.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,47 @@
+CACHE MANIFEST
+# version 0.1
+
+# Explicitly cached 'master entries'.
+CACHE:
+starter-template/css/materialize.css
+starter-template/css/materialize.min.css
+starter-template/css/style.css
+starter-template/css/fonts.css
+starter-template/font/material-design-icons/Material-Design-Icons.eot
+starter-template/font/material-design-icons/Material-Design-Icons.svg
+starter-template/font/material-design-icons/Material-Design-Icons.ttf
+starter-template/font/material-design-icons/Material-Design-Icons.woff
+starter-template/font/material-design-icons/Material-Design-Icons.woff2
+starter-template/font/roboto/Roboto-Bold.ttf
+starter-template/font/roboto/Roboto-Bold.woff
+starter-template/font/roboto/Roboto-Bold.woff2
+starter-template/font/roboto/Roboto-Medium.ttf
+starter-template/font/roboto/Roboto-Medium.woff
+starter-template/font/roboto/Roboto-Medium.woff2
+starter-template/font/roboto/Roboto-Regular.ttf
+starter-template/font/roboto/Roboto-Regular.woff
+starter-template/font/roboto/Roboto-Regular.woff2
+starter-template/font/roboto/Roboto-Light.ttf
+starter-template/font/roboto/Roboto-Light.woff
+starter-template/font/roboto/Roboto-Light.woff2
+starter-template/font/roboto/Roboto-Thin.ttf
+starter-template/font/roboto/Roboto-Thin.woff
+starter-template/font/roboto/Roboto-Thin.woff2
+starter-template/font/icons.woff2
+starter-template/image/doge.jpg
+starter-template/js/init.js
+starter-template/js/materialize.js
+starter-template/js/materialize.js
+starter-template/js/jquery.min.js
+starter-template/js/parse-1.6.7.js
+offline.appcache
+index.html
+
+
+# offline.html will be displayed if the user is offline
+FALLBACK:
+index.html
+
+# All other resources (e.g. sites) require the user to be online. 
+NETWORK:
+*
