@@ -80,7 +80,7 @@
                     alert("Online Save Successful!");
                 }, error: function(error){
                     //alert("Items not saved correctly");
-                    console.log("Error:"+error.message);
+                    //console.log("Error:"+error.message);
                 }
             });
             
@@ -113,9 +113,10 @@
         }
         var txtName = document.getElementById('name').value;
         var txtEmail = document.getElementById('email').value;
-        var txtMessage = document.getElementById('message').value;
+        var txtMessage = document.getElementById('message').value; 
+        var txtCamera = document.getElementById('camera').value;
         
-        var formInput = {name:txtName,email:txtEmail,message:txtMessage};
+        var formInput = {name:txtName,email:txtEmail,message:txtMessage,camera:txtCamera};
         jsonArray.push(formInput);
         localStorage.setItem("formInput", JSON.stringify(jsonArray));
         alert("saved offline");
@@ -123,32 +124,8 @@
         
     }
     </script>
-    <script src="../offline.min.js"></script>
+    <script src="starter-template/js/offline.min.js"></script>
 
-<!--
-Themes:
-<link rel="stylesheet" href="./themes/offline-theme-default.css" />
-<link rel="stylesheet" href="./themes/offline-theme-default-indicator.css" />
-<link rel="stylesheet" href="./themes/offline-theme-slide.css" />
-<link rel="stylesheet" href="./themes/offline-theme-slide-indicator.css" />
-<link rel="stylesheet" href="./themes/offline-theme-chrome.css" />
-<link rel="stylesheet" href="./themes/offline-theme-chrome-indicator.css" />
-<link rel="stylesheet" href="./themes/offline-theme-hubspot.css" />
-
-
-<link rel="stylesheet" href="../themes/offline-theme-chrome.css" />
-<link rel="stylesheet" href="../themes/offline-language-english.css" />
-
-<script>
-var run = function(){
-  var req = new XMLHttpRequest();
-  req.timeout = 5000;
-  req.open('GET', 'http://localhost:8383/HTML5Application/index.html', true);
-  req.send();
-};
-setInterval(run, 3000);
-</script>
--->
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">My Wonderful Web App</a>
       <ul class="right hide-on-med-and-down">
@@ -202,11 +179,11 @@ setInterval(run, 3000);
 				<div class="card grey lighten-4">
 					<div class="card-content">
 						<span class="card-title black-text">Photos</span>
-						<div id="photos-content">
+						<div id="camera">
 							<video id="video" style="display: none;" autoplay></video>
-							<a class="waves-effect waves-light btn" id="new" href="#" onclick="openCamera();"><i class="material-icons">&#xE145;</i></a>
-							<a class="waves-light btn" id="snap" href="#" style="display: none;" onclick="takePhoto();"><i class="material-icons">&#xE412;</i></a>
-							<a class="waves-effect waves-light btn" id="switch" href="#" style="display: none;" onclick="cycleCameras();"><i class="material-icons">&#xE41E;</i></a>
+							<a class="waves-effect waves-light btn" id="new" href="#photos" onclick="openCamera();"><i class="material-icons">&#xE145;</i></a>
+							<a class="waves-light btn" id="snap" href="#photos" style="display: none;" onclick="takePhoto();"><i class="material-icons">&#xE412;</i></a>
+							<a class="waves-effect waves-light btn" id="switch" href="#photos" style="display: none;" onclick="cycleCameras();"><i class="material-icons">&#xE41E;</i></a>
 							<br>
 						</div>
 					</div>

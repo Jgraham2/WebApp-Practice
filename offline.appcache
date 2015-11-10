@@ -27,13 +27,15 @@ starter-template/font/roboto/Roboto-Light.woff2
 starter-template/font/roboto/Roboto-Thin.ttf
 starter-template/font/roboto/Roboto-Thin.woff
 starter-template/font/roboto/Roboto-Thin.woff2
-starter-template/font/icons.woff2
+starter-template/font/material-design-icons/icons.woff2
 starter-template/image/doge.jpg
 starter-template/js/init.js
 starter-template/js/materialize.js
 starter-template/js/materialize.js
 starter-template/js/jquery.min.js
 starter-template/js/parse-1.6.7.js
+starter-template/js/offline.min.js
+starter-template/js/index.js
 offline.appcache
 index.html
 
