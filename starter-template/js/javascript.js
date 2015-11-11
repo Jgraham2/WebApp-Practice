@@ -3,7 +3,6 @@
      function post() {
         save();
       parseSend();
-      
     }
     
     function parseSend() {
